@@ -1,5 +1,6 @@
 body{
-    background:url(https://wallpaperaccess.com/full/1268171.jpg);
+    background:url(https://wallpaperaccess.com/full/1268171.jpg) no-repeat fixed center center;
+    background-size: cover;
   }
   
   .app {

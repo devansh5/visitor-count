@@ -16,31 +16,34 @@ function VisitorDetails() {
           .collection("visitordetails")
           .add({ json })
           .then((docRef) => {
-            localStorage.setItem('docid',docRef.id)
+            localStorage.setItem("docid", docRef.id);
           })
           .catch((error) => console.log("Error", error));
       }
     }
     visitordetail();
   }, []);
-  
-  const deleteItems=()=>{
+
+  const deleteItems = () => {
     let db = firebase.firestore();
-    let docid=localStorage.getItem('docid')
-    if(docid===null){
-      alert('already deleted')
+    let docid = localStorage.getItem("docid");
+    if (docid === null) {
+      alert("already deleted");
+    } else {
+      db.collection("visitordetails")
+        .doc(docid)
+        .delete()
+        .then(() => {
+          setdetail({});
+          localStorage.removeItem("docid");
+          localStorage.removeItem("key");
+          alert("detail deleted");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
-    else{
-      db.collection("visitordetails").doc(docid).delete().then(()=>{
-        setdetail({});
-        localStorage.removeItem('docid')
-        localStorage.removeItem('key')
-        alert("detail deleted");
-      }).catch(err=>{
-        console.log(err);
-      })
-    }
-  }
+  };
 
   return (
     <div className={classes.app}>
@@ -50,11 +53,15 @@ function VisitorDetails() {
         <span>Country Name : - {detail?.country_name}</span>
         <span>IP address : - {detail?.ip}</span>
         <span> Postal : - {detail?.postal}</span>
-        
       </div>
       <div className={classes.delete}>
-        <button onClick={deleteItems}>Delete <img src="https://img.icons8.com/dusk/64/000000/delete-forever.png" width="100"/></button>
-        
+        <button onClick={deleteItems}>
+          Delete{" "}
+          <img
+            src="https://img.icons8.com/dusk/64/000000/delete-forever.png"
+            width="100"
+          />
+        </button>
       </div>
     </div>
   );

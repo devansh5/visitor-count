@@ -1,7 +1,8 @@
 .container{
-    width: 100%;
     display: flex;
     justify-content: center;
+    flex-wrap:wrap;
+    align-items: center;
 }
 
 .heading{
@@ -18,5 +19,6 @@
     align-items: center;
     width:500px;
     height:500px;
+    
     background-color:rgb(1, 9, 20);;
 }
