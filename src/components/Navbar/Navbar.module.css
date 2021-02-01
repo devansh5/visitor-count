@@ -1,0 +1,9 @@
+.nav{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+}
+.ms{
+    margin: 30px;
+    color: white;
+}

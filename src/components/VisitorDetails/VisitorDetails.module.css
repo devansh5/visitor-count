@@ -1,0 +1,75 @@
+body{
+    background:url(https://wallpaperaccess.com/full/1268171.jpg);
+  }
+  
+  .app {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  .appheader {
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: white;
+  }
+  .container{
+    margin-top:60px;
+    color: white;
+    background: rgb(1, 9, 20);
+    width:33%;
+    height: 300px;
+    display: flex;
+    animation-name: animation;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    flex-direction: column;
+    box-shadow: 0 0 10px white;
+    cursor: pointer;
+  }
+  @keyframes animation{
+    50%{
+      transition: tranform 1s ease-in;
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgb(179, 255, 144);
+    }
+    100%{
+      transition: tranform 1s ease-in-out;
+      transform: scale(1);
+    }
+  }
+  span{
+    font-size: 30px;
+    margin: 10px;
+  }
+  .delete{
+      margin-top: 30px;
+  }
+  .delete span{
+      background-color: crimson;
+      color: white;
+  }
+  img{
+      width: 20px;
+  }
+  button{
+      cursor: pointer;
+  }
+  @media screen and (max-width:411px){ 
+    .container{
+        width:250px;
+    }
+    span{
+        font-size:18px;
+    }
+  }
+
